@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Hero from '@/views/hero';
 import Promotion from '@/views/promotion';
-import ProductList from '@/views/productList';
 import {client} from '@/lib/sanityClient'
 import {Image as IImage} from 'sanity'
 import ProductCard from '@/views/productCard';
@@ -41,14 +40,19 @@ export default async function Home() {
   return (
     <div>
       <Hero />
-      {/* <Promotion /> */}
-      {/* <ProductList /> */}
+      <Promotion />
+      <div className='flex items-center justify-center font-extrabold text-blue-800'>
+            PRODUCTS
+        </div>
+        <div className='flex items-center justify-center text-4xl font-bold'>
+            Check What We have
+        </div>
       <div className='p-10 grid grid-cols-[auto,auto,auto] justify-center gap-x-5'>
-      {/* {data.map((item) => (
+      {data.map((item) => (
         <div>
         <ProductCard item={item} />
         </div>
-      ))} */}
+      ))}
     </div>
       </div>
   )

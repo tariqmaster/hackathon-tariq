@@ -1,7 +1,6 @@
 import {pgTable, varchar, serial, integer} from "drizzle-orm/pg-core";
 import {drizzle} from "drizzle-orm/vercel-postgres";
-// import {sql} from "@vercel/postgres";
-import { sql  } from "drizzle-orm"; 
+import { sql } from "@vercel/postgres";
 
 export const cartTable = pgTable("cart",{
     id: serial("id").primaryKey(),
