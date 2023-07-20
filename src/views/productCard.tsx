@@ -3,7 +3,6 @@
 import React, { FC } from 'react'
 import Image from "next/image";
 import "@/app/layout";
-// import { urlForImage } from 'sanity/lib/image';
 import { urlForImage } from "../../sanity/lib/image";
 
 
