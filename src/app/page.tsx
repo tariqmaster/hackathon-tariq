@@ -47,13 +47,13 @@ export default async function Home() {
         <div className='flex items-center justify-center text-4xl font-bold'>
             Check What We have
         </div>
-      <div className='p-10 grid grid-cols-[auto,auto,auto] justify-center gap-x-5'>
+      {/* <div className='p-10 grid grid-cols-[auto,auto,auto] justify-center gap-x-5'>
       {data.map((item, ind) => (
         <div key={ind}>
         <ProductCard item={item} />
         </div>
       ))}
-    </div>
+    </div> */}
       </div>
   )
 }
