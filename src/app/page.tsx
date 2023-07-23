@@ -36,9 +36,10 @@ interface IProduct {
 export default async function Home() {
 
   const data: IProduct[] = await getProductData()
+  const productHome = data.slice(0,3);
 
   return (
-    <div>Hello
+    <div>
       <Hero />
       {/* <Promotion /> */}
       <div className='flex items-center justify-center font-extrabold text-blue-800'>
@@ -48,7 +49,7 @@ export default async function Home() {
             Check What We have
         </div>
       <div className='p-10 grid grid-cols-[auto,auto,auto] justify-center gap-x-5'>
-      {data.map((item, ind) => (
+      {productHome.map((item, ind) => (
         <div key={ind}>
         <ProductCard item={item} />
         </div>
