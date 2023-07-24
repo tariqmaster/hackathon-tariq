@@ -1,20 +1,50 @@
 import React from 'react';
+import Image from 'next/image';
+import {client} from '@/lib/sanityClient'
+import {Image as IImage} from 'sanity'
+import ProductCard from '@/views/productCard';
 
-const ProductList = () => {
+
+
+const getProductData = async () => {
+  const res = await client.fetch(`*[_type=="product"]{
+    price,
+    _id,
+    description,
+    title,
+    image,
+    category,
+  }`);
+  return res
+}
+
+
+interface IProduct {
+  title: string,
+  _id: string,
+  description: string,
+  price: number,
+  image: IImage,
+  category: {
+    name: string,
+  }
+}
+
+
+
+export default async function ProductList() {
+
+    const data: IProduct[] = await getProductData()
+
   return (
-    <div className='py-6 px-6'>
-           <div className='flex items-center justify-center font-extrabold text-blue-800'>
-            PRODUCTS
+    <div>
+          <div className='p-10 grid grid-cols-[auto,auto,auto] justify-center gap-x-5'>
+      {data.map((item, ind) => (
+        <div key={ind}>
+        <ProductCard item={item} />
         </div>
-        <div className='flex items-center justify-center text-4xl font-bold'>
-            Check What We have
-        </div>
-
-    <div className='mt-4 grid grid-cols-[repeat(auto-fit,minmax(16rem,1fr))] gap-8'>
-       
-            </div>
+      ))}
+      </div>
     </div>
   )
 }
-
-export default ProductList;

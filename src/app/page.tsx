@@ -4,6 +4,7 @@ import Hero from '@/views/hero';
 import {client} from '@/lib/sanityClient'
 import {Image as IImage} from 'sanity'
 import ProductCard from '@/views/productCard';
+import ProductList from '@/views/productList';
 
 
 
@@ -55,6 +56,7 @@ export default async function Home() {
         </div>
       ))}
     </div>
+   
       </div>
   )
 }

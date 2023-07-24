@@ -18,13 +18,13 @@ import {Menu} from "lucide-react";
 const Header = () => {
   return (
     <div className='wrapper py-6 flex justify-between items-center'>
-        <Image src={logo}  alt="logo" className='w-40'/>
+        <Link href="/"><Image src={logo}  alt="logo" className='w-40'/></Link>
         <div className='hidden md:block'>
         <ul className='flex gap-x-5'>
-            <li className='text-lg'><Link href="/">Female</Link></li>
-            <li className='text-lg'><Link href="/">Male</Link></li>
-            <li className='text-lg'><Link href="/">Kids</Link></li>
-            <li className='text-lg'><Link href="/">All Products</Link></li>
+            <li className='text-lg'><Link href="/products/female">Female</Link></li>
+            <li className='text-lg'><Link href="/products/male">Male</Link></li>
+            <li className='text-lg'><Link href="/products/kids">Kids</Link></li>
+            <li className='text-lg'><Link href="/products">All Products</Link></li>
         </ul>
         </div> 
 <div className='hidden md:block'>
