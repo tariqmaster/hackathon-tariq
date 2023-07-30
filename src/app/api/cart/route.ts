@@ -12,6 +12,9 @@ export const GET = async (request: NextRequest )=>{
    const req = request.nextUrl 
    const uid = req.searchParams.get("user_id") as string;
 
+   const cookiesStore =cookies();
+   console.log(cookiesStore.get("user_id"));
+
     try {
         const res = await db.select().from(cartTable).where(eq(cartTable.user_id, uid));
         return NextResponse.json({res})

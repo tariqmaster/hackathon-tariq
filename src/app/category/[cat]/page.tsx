@@ -1,9 +1,7 @@
-import Image from 'next/image';
-import Hero from '@/views/hero';
-// import Promotion from '@/views/promotion';
+
+import ProductCard from '@/views/productCard'
 import {client} from '@/lib/sanityClient'
 import {Image as IImage} from 'sanity'
-import ProductCard from '@/views/productCard';
 
 const getProductData = async () => {
   const res = await client.fetch(`*[_type=="product"]{
@@ -31,25 +29,26 @@ interface IProduct {
 
 
 
-export default async function Home() {
+// const getProductTypesByCategory = (category: string)=>{
+//   Product.filter(Products.category)=> Products.category ===category
+// }
+// export default function Page({params}: {params:{slug: string}}) {
+
+export default async function Page({params}:{params:{cat: string}}) {
 
   const data: IProduct[] = await getProductData()
-  const productHome = data.slice(0,3);
-  console.log(data);
+
+const getProductTypesByCategory = (category: string)=>{
+return  data.filter((data) => params.cat ===category)
+}
+//   const result = getProductTypesByCategory(params.slug)
   return (
     <div>
-      
-      <Hero />
-      {/* <Promotion /> */}
-      <div className='flex items-center justify-center font-extrabold text-blue-800'>
-            PRODUCTS
-        </div>
-        <div className='flex items-center justify-center text-4xl font-bold'>
-            Check What We have
-        </div>
+        
       <div className='p-10 grid grid-cols-[auto,auto,auto] justify-center gap-x-5'>
-      {productHome.map((item, ind) => (
+      {data.map((item, ind) => (
         <div key={ind}>
+          <h2></h2>
         <ProductCard item={item} />
         </div>
       ))}

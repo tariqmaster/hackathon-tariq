@@ -4,6 +4,9 @@ import React, { FC } from 'react'
 import Image from "next/image";
 import "@/app/layout";
 import { urlForImage } from "../../sanity/lib/image";
+import { Name, name } from 'drizzle-orm';
+import { title } from 'process';
+
 
 
 
@@ -18,8 +21,8 @@ const ProductCard:FC<{item: any}> = ({item}) => {
         })
         
         const result = await res.json();
-        console.log(result);
-        console.log(res.ok);
+        // console.log(result);
+        // console.log(res.ok);
     }
 
   return (
@@ -30,9 +33,13 @@ const ProductCard:FC<{item: any}> = ({item}) => {
         width={300}
         height={300}
         className='max-h-[300px] object-cover object-top'
-        src={urlForImage(item.image).url()} alt="product" />
-        <h2>{item.title}</h2>
+        src={urlForImage(item.image).url()} alt="category" />
+        <h2>{item.title}</h2>  
+        <h2>{item.type}</h2>
+        {/* <h2>{item.category}</h2> */}
         <h2>${item.price}</h2>
+        {/* <h2>${item.price}</h2> */}
+        {/* <h2>${item.title}</h2> */}
         <button onClick={()=>handleAddToCart()} className='border py-2 px-4 rounded text-white bg-blue-600'>Add to Cart</button>
     </div>
     </div>
